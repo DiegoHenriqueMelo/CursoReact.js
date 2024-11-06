@@ -1,27 +1,35 @@
 import React, { useState, useEffect } from "react";
 
 const App = () => {
-  const [usuarios, setUsuario] = useState([
-    "Diego",
-    "Milena",
-    "Arthur",
-    "Chloe",
-  ]);
+  const [usuario, setUsuario] = useState("");
+  const [count, setCount] = useState(0);
+  const [usuarios, setUsuarios] = useState(["Diego", "Milena", "Arthur"]);
 
+  const handleAddUser = () => {
+    setUsuarios([...usuarios, usuario]);
+    setUsuario("");
+  };
 
-//   useEffect(()=>{
+  useEffect(() => {
+    setCount(usuarios.length);
 
-//     setTimeout(()=>{
-//         setUsuario([...usuarios, "Familia Feliz <3"])
-//     },)
-//   })
+  }, [usuarios]);
 
   return (
-    <div>
+    <div className="App">
       <h1>Hello DIO!</h1>
-      {usuarios.map((iten) => (
-        <p>{iten}</p>
-      ))}
+      <h3>Total = {count}</h3>
+      <div>
+        <input
+          value={usuario}
+          onChange={(event) => setUsuario(event.target.value)}
+        ></input>
+        <button onClick={handleAddUser}>Adicionar</button>
+      </div>
+      <hr />
+      {usuarios.map((iten) => {
+        return <p>{iten}</p>;
+      })}
     </div>
   );
 };
