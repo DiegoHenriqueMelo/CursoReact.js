@@ -1,0 +1,13 @@
+.iten-list{
+    margin: 24px 0;
+}
+.iten-list strong{
+    color: #539bf5;
+    font-size: 24px;
+    margin: 24px 0 0;
+}
+.iten-list p{
+    color: #999999;
+    font-size: 12px;
+    margin: 24px 0;
+}
